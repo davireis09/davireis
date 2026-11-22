@@ -1,14 +1,16 @@
 <?php
-$host = "SEU_HOST";
-$usuario = "SEU_USUARIO";
-$senha = "SUA_SENHA";
+$host = "sql113.infinityfree.com";
+$usuario = "if0_43494222";
+$senha = "4OlUNF6caHrBcD";
 $banco = "if0_43494222_escola";
 
-$conexao = new mysqli($host, $usuario, $senha, $banco);
+try {
+    $conexao = new mysqli($host, $usuario, $senha, $banco);
+    $conexao->set_charset("utf8mb4");
 
-if ($conexao->connect_error) {
-    die("ERRO DE CONEXÃO: " . $conexao->connect_error);
+    echo "CONEXÃO REALIZADA COM SUCESSO!";
+
+} catch (mysqli_sql_exception $e) {
+    die("ERRO MYSQL: " . $e->getMessage());
 }
-
-echo "CONEXÃO COM O BANCO REALIZADA COM SUCESSO!";
 ?>
